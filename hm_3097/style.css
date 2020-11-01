@@ -1,0 +1,47 @@
+
+.invalid {
+    border-color: red;
+  }
+  
+  #mailError, #devError, #siteUrlError, #descriptionError, #checkError {
+    color: red;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .longtext {
+    margin: 1px;
+    width: 500px;
+  }
+  .number {
+    margin: 1px;
+    width: 60px;
+  }
+  .date {
+    margin: 1px;
+    width: 130px;
+  }
+  .shorttext {
+    margin: 1px;
+    width: 200px;
+  }
+  .combo {
+    margin: 1px;
+    width: 200px;
+  }
+  .radio {
+    margin: 1px;
+  }
+  .check {
+    margin: 1px;
+  }
+  .memo {
+    margin: 1px;
+    width: 700px;
+  }
+  .submit {
+    margin: 1px;
+  }
+  
