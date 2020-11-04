@@ -33,15 +33,6 @@ webserver.get("/", function(req, res) {
     res.sendFile(__dirname + "/views/index.html");
 });
 
-webserver.post('/service2', (req, res) => {
-    console.log('service1 called, req.body=', req.body);
-    res.send('service1 ok, siteName = ' + req.body.name + 
-    ' siteUrl = ' + req.body.url + 
-    ' e-mail = ' + req.body.email + 
-    ' checkbox = ' + req.body.votes + 
-    ' description = ' + req.body.description);
-});
-
 webserver.post('/service1', (req, res) => {
     console.log('service1 called, req.body=', req.body);
     siteName = textFieldCheck(req.body.name);
