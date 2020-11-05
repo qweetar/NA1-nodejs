@@ -3,19 +3,20 @@
   <head>
       <meta charset="UTF-8">
       <title>Document</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" type="text/css" href="/hm_3097/css/style.css">
   </head>
   <body>
     <form id="myForm" method="POST" action="http://46.101.125.193:3097/service1" taget="example">
+    {{!-- <form id="myForm" method="POST" action="http://localhost:3097/service1" taget="example"> --}}
       <div>
         <span style="color: red;">{{message}}</span><br>
         <label>Название организации</label><input type="text" name="name" class="longtext" id="dev" value="{{name}}"></input><span id="devError"></span><br>
         <label>URL сайта:</label><input type="text" name="url" class="shorttext" id="siteUrl" value="{{url}}"></input><span class="error" id="siteUrlError"></span><br>
         <label>E-mail для связи:</label><input type="text" name="email" class="shorttext" id="mail" value="{{email}}"></input><span id="mailError"></span><br>
         <label>Согласие на обрботку персональных данных</label>
-        <input class="check" type="checkbox" name="votes" id="check"></input><span class="error" id="checkError"></span><br>
+        <input class="check" type="checkbox" name="votes" id="check" {{votes}}></input><span class="error" id="checkError"></span><br>
         <label>Описание сайта:</label><span class="error" id="descriptionError"></span><br>
-        <textarea class="memo" name="description" id="description" value="{{description}}"></textarea><br>
+        <textarea class="memo" name="description" id="description" >{{description}}</textarea><br>
         <button >Опубликовать</button>
       </div>
     </form>

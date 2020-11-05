@@ -14,11 +14,10 @@ webserver.engine('hbs', expressHbs({
 
 webserver.set('view engine', 'hbs');
 webserver.set('views', './hm_3097/views/layouts');
-webserver.use(express.static(__dirname + '/public/hm_3097/views'));
 
 webserver.use(express.urlencoded({extended:true}));
 webserver.use(bodyParser.urlencoded({extended: true}));
-webserver.use(express.static(path.join(__dirname + 'hm_3097')));
+webserver.use('/hm_3097', express.static(path.join(__dirname + '/public')));
 
 const port = 3097;
 
@@ -35,29 +34,27 @@ webserver.get("/", function(req, res) {
 
 webserver.post('/service1', (req, res) => {
     console.log('service1 called, req.body=', req.body);
+    validForm = true;
     siteName = textFieldCheck(req.body.name);
     siteUrl = siteUrlCheck(req.body.url);
     email = emailCheck(req.body.email);
     check = checkCheck(req.body.votes);
     description = textFieldCheck(req.body.description);
-    console.log("1");
     if (validForm) {
         res.send('Валидация прошла успешно, <br>siteName = ' + req.body.name + 
         '<br>siteUrl = ' + req.body.url + 
         '<br>e-mail = ' + req.body.email + 
         '<br>checkbox = ' + req.body.votes + 
         '<br>description = ' + req.body.description);
-        console.log("2");
     } else {
         res.render("index", {
             name: req.body.name,
             url: req.body.url,
             email: req.body.email,
-            votes: req.body.votes,
+            votes: check,
             description: req.body.description,
             message: " Введите корректные данные"
         });
-        console.log("3");
     }
 });
 
@@ -90,9 +87,9 @@ function emailCheck(email) {
 }
 
 function checkCheck(check) {
-    if(check == false) {
+    if(check == undefined) {
         validForm = false;
-        return 'Поставьте галочку разрешить отзывы';
+        return undefined;
     }
-    return check;
+    return "checked";
 }
