@@ -32,6 +32,14 @@ webserver.get("/", function(req, res) {
     res.sendFile(__dirname + "/views/index.html");
 });
 
+webserver.get('/service1', (req, res) => {
+    res.send('Валидация прошла успешно, <br>siteName = ' + req.query.siteName +
+        '<br>siteUrl = ' + req.query.siteUrl + 
+        '<br>e-mail = ' + req.query.email + 
+        '<br>checkbox = ' + req.query.votes + 
+        '<br>description = ' + req.query.description);
+});
+
 webserver.post('/service1', (req, res) => {
     console.log('service1 called, req.body=', req.body);
     validForm = true;
@@ -41,11 +49,11 @@ webserver.post('/service1', (req, res) => {
     check = checkCheck(req.body.votes);
     description = textFieldCheck(req.body.description);
     if (validForm) {
-        res.send('Валидация прошла успешно, <br>siteName = ' + req.body.name + 
-        '<br>siteUrl = ' + req.body.url + 
-        '<br>e-mail = ' + req.body.email + 
-        '<br>checkbox = ' + req.body.votes + 
-        '<br>description = ' + req.body.description);
+        res.redirect('/service1?siteName=' + req.body.name +
+        '&siteUrl=' + req.body.url +
+        '&email=' + req.body.email +
+        '&checkbox=' + req.body.votes +
+        '&description=' + req.body.description);
     } else {
         res.render("index", {
             name: req.body.name,

@@ -4,12 +4,10 @@
   "description": "Node.js web projects architecture",
   "main": "app.js",
   "scripts": {
-    "server3097:dev": "cross-env NODE_ENV=development node hm_3097/app.js",
-    "server3097:prod": "cross-env NODE_ENV=production node hm_3097/app.js",
+    "server3097:dev": "cross-env NODE_ENV=development node hm_3097/app3097.js",
+    "server3097:prod": "cross-env NODE_ENV=production node hm_3097/app3097.js",
     "servers": "nodemon servers/servers.js",
-    "servers_filelog": "node servers/servers.js >> /home/nodeuser/NodeArch/_nodemon.log",
-    "server3085:dev": "cross-env NODE_ENV=development VAR1=aaa node theme30/server3085/server3085.js",
-    "server3085:prod": "cross-env NODE_ENV=production VAR1=bbb node theme30/server3085/server3085.js"
+    "servers_filelog": "node servers/servers.js >> /home/nodeuser/NodeArch/_nodemon.log"
   },
   "repository": {
     "type": "git",
@@ -23,6 +21,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.6.3",
     "@babel/register": "^7.6.0",
+    "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "connect-busboy": "0.0.2",
@@ -46,10 +45,16 @@
     "nodemailer": "^6.3.0",
     "nodemon": "^2.0.6",
     "progress-stream": "^2.0.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "css-loader": "^3.6.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
     "ws": "^7.1.2"
   }
 }
