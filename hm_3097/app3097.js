@@ -9,10 +9,10 @@ const webserver = express();
 webserver.engine('hbs', expressHbs({
     layoutsDir: "hm_3097/views/layouts",
     defaultLayout: 'index',
-    extname: '.hbs'
+    extname: 'hbs'
 }))
 
-webserver.set('view engine', '.hbs');
+webserver.set('view engine', 'hbs');
 webserver.set('views', './hm_3097/views/layouts');
 
 webserver.use(express.urlencoded({extended:true}));
@@ -55,7 +55,7 @@ webserver.post('/service1', (req, res) => {
         '&checkbox=' + req.body.votes +
         '&description=' + req.body.description);
     } else {
-        res.render("index.hbs", {
+        res.render("index", {
             name: req.body.name,
             url: req.body.url,
             email: req.body.email,
